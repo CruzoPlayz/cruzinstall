@@ -2,6 +2,8 @@
 
 clear
 
+iwctl
+
 timedatectl set-ntp true
 ntpd -qg
 hwclock -w
