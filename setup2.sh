@@ -44,12 +44,11 @@ cp files/mkinitcpio-nvidia.conf /etc/mkinitcpio.conf
 clear
 echo "Installing GRUB..."
 sleep 2
-if [ $UEFICHECK2 = y ]
-    then
+
         pacman -Syu grub efibootmgr intel-ucode  --noconfirm
         grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB 
         grub-mkconfig -o /boot/grub/grub.cfg
-fi
+
 
         clear
         echo "Installing KDE..."
