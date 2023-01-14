@@ -14,15 +14,15 @@ echo "Partitioning..."
 
 sleep 1
 
-parted /dev/$DRIVETYPE mklabel gpt
-parted /dev/$DRIVETYPE mkpart "EFI" fat32 1MiB 512MiB
-parted /dev/$DRIVETYPE set 1 esp on
+parted /dev/nvme0n1 mklabel gpt
+parted /dev/nvme0n1 mkpart "EFI" fat32 1MiB 512MiB
+parted /dev/nvme0n1 set 1 esp on
 
 clear
 
-parted /dev/$DRIVETYPE mkpart "swap" linux-swap 512MiB 16GiB
+parted /dev/nvme0n1 mkpart "swap" linux-swap 512MiB 16GiB
 
-parted /dev/$DRIVETYPE mkpart "root" ext4 16GiB 100%
+parted /dev/nvme0n1 mkpart "root" ext4 16GiB 100%
 
 clear
 echo "Formatting Partitions..." 

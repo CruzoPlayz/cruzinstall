@@ -97,7 +97,8 @@ sleep 3
 rm /etc/pacman.conf
 cp files/pacman.conf /etc/pacman.conf
 
-                        pacman -Syu lib32-nvidia-utils --noconfirm 
+                        pacman -Syu lib32-nvidia-utils openssh --noconfirm 
+                        systemctl enable sshd
 
 clear                
 mkinitcpio -P
